@@ -1,4 +1,4 @@
- 
+package cse360assign2; 
 
 public class AddingMachine {
 
@@ -13,7 +13,7 @@ public class AddingMachine {
      */
     public AddingMachine () {
         total = 0;  // not needed - included for clarity
-        history = "";
+        history = "0";
     }
     
     /**
@@ -29,6 +29,7 @@ public class AddingMachine {
      * @param value the value to be added to the adding machine
      */
     public void add (int value) {
+        history += " + " + Integer.toString( value );
         total += value;
     }
 
@@ -38,7 +39,7 @@ public class AddingMachine {
      * @param value the value to be subtracted from the adding machine
      */ 
     public void subtract (int value) {
-        
+        history += " - " + Integer.toString( value );
         total -= value;
     }
         
@@ -46,13 +47,14 @@ public class AddingMachine {
      * Returns the value of the adding machine as a string
      */
     public String toString () {
-        return history + Integer.toString( total );
+        return history;
     }
 
     /**
      * Clears the adding machine
      */
     public void clear() {
-        history = "";
+        total = 0;
+        history = "0";
     }
 }
